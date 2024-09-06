@@ -2,8 +2,9 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 public class MapTile {
-    public int x = 1;
-    public int y = 1;
+    public int x;
+    public int y;
+    public char ch = '#';
     public String desc;
     String SHA_512_Hash(String stringToHash, String salt){
         String generatedPassword = null;
@@ -21,7 +22,12 @@ public class MapTile {
         }
         return generatedPassword;
     }
-    public static void main(String[] args) {
-        System.out.println(args);
+    MapTile(int X, int Y) {
+        x=X;
+        y=Y;
+    }
+    MapTile(int X, int Y, char CH) {
+        this(X,Y);
+        ch=CH;
     }
 }
